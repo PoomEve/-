@@ -1,0 +1,447 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>ศุกร์กายสบายใจ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600&family=Prompt:wght@500;600;700&display=swap">
+<style>
+/* Layout: a guide panel on the left lists the five screens; a phone on the right runs them. Stacks on narrow widths. */
+:root{
+  --page:#F3EAE4; --bg:#FBF6EE; --surface:#FFFFFF; --ink:#3A1218; --muted:#6B4F55; --line:#E8D9D3;
+  --pink:#FFD9EA; --blue:#CDEFFB; --accent:#C2255C; --on-accent:#FFFFFF;
+  --ok:#1B6B4D; --warn:#9A5B00; --bad:#B3261E; --shadow:0 24px 60px rgba(58,18,24,.18);
+  --font-display:'Prompt',system-ui,sans-serif; --font-body:'Noto Sans Thai',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --page:#150C10; --bg:#1E1216; --surface:#2B1B21; --ink:#FBEFF3; --muted:#D1B5BD; --line:#46303A;
+  --pink:#4A2433; --blue:#1F3A46; --accent:#FF7AA8; --on-accent:#2A0E18;
+  --ok:#6FD3A6; --warn:#F2B35C; --bad:#FF9C94; --shadow:0 24px 60px rgba(0,0,0,.5); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#150C10; --bg:#1E1216; --surface:#2B1B21; --ink:#FBEFF3; --muted:#D1B5BD; --line:#46303A;
+  --pink:#4A2433; --blue:#1F3A46; --accent:#FF7AA8; --on-accent:#2A0E18;
+  --ok:#6FD3A6; --warn:#F2B35C; --bad:#FF9C94; --shadow:0 24px 60px rgba(0,0,0,.5); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.5;
+  background-image:radial-gradient(520px 420px at 78% 18%,var(--pink),transparent 70%),radial-gradient(520px 420px at 92% 80%,var(--blue),transparent 70%);
+  background-repeat:no-repeat;background-attachment:fixed;
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:24px}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance;line-height:1.2}
+
+.wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:start}
+.guide{display:flex;flex-direction:column;gap:24px;padding-top:24px;min-width:0}
+.guide h1{font-size:clamp(34px,5vw,52px);font-weight:700}
+.guide .lead{margin:0;color:var(--muted);max-width:44ch}
+.guide ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.guide li button{width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.guide li button[aria-current="true"]{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent)}
+.guide li b{font-family:var(--font-display);font-weight:600}
+.guide li span{color:var(--muted);font-size:15px}
+.note{font-size:14px;color:var(--muted);margin:0}
+
+.stage{position:sticky;top:24px;display:flex;justify-content:center}
+.phone{position:relative;width:390px;max-width:100%;height:min(800px,calc(100svh - 48px));min-height:640px;background:var(--bg);
+  border:10px solid var(--ink);border-radius:46px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.screen{flex:1;overflow-y:auto;min-height:0}
+.view{padding:22px 20px 28px;display:flex;flex-direction:column;gap:18px}
+.view[hidden]{display:none}
+.top{display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:22px;flex:none}
+.top small{display:block;color:var(--muted);font-size:14px;line-height:1.3}
+.top b{font-family:var(--font-display);font-size:20px;font-weight:600;line-height:1.2}
+.h2{font-size:26px;font-weight:700}
+.sub{margin:0;color:var(--muted);font-size:15px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px}
+.balance{background:var(--pink);border-color:transparent;display:flex;flex-direction:column;gap:10px;padding:20px}
+.balance .lbl{font-size:14px;margin:0}
+.big{font-family:var(--font-display);font-size:44px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.bar{height:10px;border-radius:99px;background:rgba(58,18,24,.14);overflow:hidden}
+.dark-bar{background:rgba(255,255,255,.18)}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .4s}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:15px}
+.num{font-variant-numeric:tabular-nums}
+.btn{border:0;border-radius:14px;padding:13px 18px;font-weight:600;background:var(--accent);color:var(--on-accent);min-height:48px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.soft{background:var(--blue);color:var(--ink)}
+.btn.wide{width:100%}
+.btn:active{transform:scale(.98)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:left;display:flex;flex-direction:column;gap:8px;min-height:92px}
+.tile svg{color:var(--accent)}
+.tile b{font-family:var(--font-display);font-weight:600;font-size:16px;line-height:1.25}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.list li:first-child{border-top:0}
+.list small{display:block;color:var(--muted)}
+h3.sec{font-size:17px;font-weight:600}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:99px;padding:8px 14px;font-size:15px;min-height:40px}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:10px;padding:10px;font-weight:600;min-height:44px}
+.seg button[aria-selected="true"]{background:var(--blue)}
+.badge{display:inline-block;border-radius:99px;padding:3px 10px;font-size:13px;font-weight:600;background:var(--blue);color:var(--ink)}
+.badge.hot{background:var(--pink)}
+.status{display:flex;gap:10px;align-items:flex-start;border-radius:14px;padding:12px 14px;font-size:15px;border:1.5px solid currentColor}
+.status b{display:block;font-family:var(--font-display);font-weight:600}
+.status.ok{color:var(--ok)}.status.warn{color:var(--warn)}.status.bad{color:var(--bad)}
+.status span{color:var(--ink)}
+
+input[type=range]{width:100%;accent-color:var(--accent);height:32px}
+.field{width:100%;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 14px;min-height:48px}
+label.l{font-size:14px;color:var(--muted);display:block;margin-bottom:6px}
+
+.item{display:flex;flex-direction:column;gap:8px}
+.item h3{font-size:17px;font-weight:600}
+.item p{margin:0;font-size:15px;color:var(--muted)}
+.item .top2{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.save{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;min-width:44px;min-height:44px;display:grid;place-items:center}
+.save[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.code{font-family:var(--font-display);letter-spacing:2px;font-weight:600;background:var(--bg);border:1.5px dashed var(--ink);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.code button{border:0;background:var(--ink);color:var(--bg);border-radius:10px;padding:6px 12px;min-height:36px;font-size:14px}
+.off{font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--accent);line-height:1}
+
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);background:var(--surface);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabs button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;font-size:12px;color:var(--muted);border-radius:12px;min-height:54px;line-height:1.2}
+.tabs button[aria-current="true"]{color:var(--accent);font-weight:600}
+.tabs button[aria-current="true"] svg{stroke-width:2.4}
+
+.backdrop{position:absolute;inset:0;background:rgba(20,6,10,.5);display:flex;align-items:flex-end;z-index:5}
+.backdrop[hidden]{display:none}
+.sheet{width:100%;background:var(--bg);border-radius:28px 28px 0 0;padding:20px 20px 24px;display:flex;flex-direction:column;gap:14px;max-height:92%;overflow-y:auto}
+.sheet .grab{width:44px;height:5px;border-radius:9px;background:var(--line);align-self:center}
+.sheet .btns{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
+.toast{position:absolute;left:16px;right:16px;bottom:84px;background:var(--ink);color:var(--bg);border-radius:14px;padding:12px 16px;font-size:15px;z-index:9;text-align:center;transition:opacity .25s,transform .25s}
+.toast:not(.on){opacity:0;transform:translateY(8px);pointer-events:none}
+.post b{font-weight:600}
+.like{border:0;background:transparent;display:inline-flex;gap:6px;align-items:center;color:var(--muted);padding:8px 10px;min-height:40px;border-radius:10px}
+.like[aria-pressed="true"]{color:var(--accent);font-weight:600}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .stage{position:static;order:-1}
+  .guide{padding-top:0}
+}
+@media (max-width:440px){
+  .phone{border-width:0;border-radius:24px}
+  body{padding-block:12px}
+  .big{font-size:38px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <aside class="guide">
+    <div>
+      <h1>ศุกร์กายสบายใจ</h1>
+      <p class="lead">ต้นแบบแอปช่วยนักศึกษาออมเงิน มี 5 หน้าจอ ลองกดในโทรศัพท์ได้เลย หรือเลือกหน้าจากรายการนี้</p>
+    </div>
+    <ul id="guide"></ul>
+    <p class="note">ตัวเลข ทุน งาน และดีลทั้งหมดเป็นข้อมูลตัวอย่างสำหรับทดสอบ ไม่ใช่ประกาศจริง</p>
+  </aside>
+
+  <main class="stage">
+    <div class="phone" id="phone">
+      <div class="screen" id="screen">
+
+        <!-- HOME -->
+        <section class="view" data-view="home">
+          <div class="top"><div class="logo" aria-hidden="true">฿</div><div><small id="dateLine">เหลืออีก 12 วันก่อนเงินเข้า</small><b>สวัสดี นักศึกษา</b></div></div>
+          <div class="card balance">
+            <p class="lbl">เงินคงเหลือเดือนนี้</p>
+            <div class="big" id="bal">฿3,420</div>
+            <div class="bar"><i id="balBar" style="width:43%"></i></div>
+            <div class="row"><span>จากงบ <span class="num" id="budget">฿8,000</span></span><span>ใช้ได้วันละ <b class="num" id="daily">฿285</b></span></div>
+          </div>
+          <button class="btn wide" id="openAdd">+ บันทึกรายจ่าย</button>
+          <div class="card">
+            <div class="row"><h3 class="sec">เป้าหมาย: หูฟังไร้สาย</h3><span class="num" id="goalTxt">฿600 / ฿1,500</span></div>
+            <div class="bar" style="margin:12px 0"><i id="goalBar" style="width:40%"></i></div>
+            <button class="btn soft wide" id="addGoal">ออมเพิ่ม ฿100</button>
+          </div>
+          <div class="grid2" id="quick"></div>
+          <div class="card">
+            <h3 class="sec">รายจ่ายล่าสุด</h3>
+            <ul class="list" id="txList"></ul>
+          </div>
+        </section>
+
+        <!-- PREPAY -->
+        <section class="view" data-view="prepay" hidden>
+          <h2 class="h2">คิดก่อนจ่าย</h2>
+          <p class="sub">เลื่อนเพื่อดูว่ารายจ่ายนี้กระทบเงินที่เหลือแค่ไหน ก่อนตัดสินใจ</p>
+          <div class="card">
+            <label class="l" for="amt">ราคาที่กำลังจะจ่าย</label>
+            <div class="big num" id="amtTxt" style="margin-bottom:8px">฿350</div>
+            <input type="range" id="amt" min="0" max="2000" step="10" value="350" aria-label="ราคาที่กำลังจะจ่าย">
+          </div>
+          <div class="status" id="pstat" role="status"></div>
+          <div class="grid2">
+            <div class="card"><small class="sub">เงินเหลือหลังจ่าย</small><div class="num" style="font-family:var(--font-display);font-size:24px;font-weight:700" id="after">฿3,070</div></div>
+            <div class="card"><small class="sub">ใช้ได้วันละ (จากนี้)</small><div class="num" style="font-family:var(--font-display);font-size:24px;font-weight:700" id="dAfter">฿255</div></div>
+          </div>
+          <div class="card" id="goalCmp"></div>
+          <div class="card" id="waitBox">
+            <div class="row"><h3 class="sec">ขอคิดดูก่อน</h3><b class="num" id="clock" style="font-family:var(--font-display);font-size:24px">10:00</b></div>
+            <p class="sub" style="margin:6px 0 12px">เริ่มนับถอยหลัง 10 นาที ถ้ายังอยากได้ค่อยจ่าย</p>
+            <button class="btn soft wide" id="waitBtn">เริ่มรอ 10 นาที</button>
+          </div>
+          <div class="grid2">
+            <button class="btn ghost" id="toDeals">ดูดีลที่ถูกกว่า</button>
+            <button class="btn" id="payNow">จ่ายเลย</button>
+          </div>
+        </section>
+
+        <!-- FUNDS -->
+        <section class="view" data-view="funds" hidden>
+          <h2 class="h2">ทุนและงานเสริม</h2>
+          <p class="sub">รวมแหล่งทุนและงานพาร์ทไทม์ที่ตรวจแหล่งที่มาแล้ว ไว้ในที่เดียว</p>
+          <div class="seg" role="tablist" id="fundSeg">
+            <button role="tab" aria-selected="true" data-k="grant">ทุนการศึกษา</button>
+            <button role="tab" aria-selected="false" data-k="job">งานพาร์ทไทม์</button>
+          </div>
+          <p class="sub" id="savedLine"></p>
+          <div id="fundList" style="display:flex;flex-direction:column;gap:12px"></div>
+        </section>
+
+        <!-- DEALS -->
+        <section class="view" data-view="deals" hidden>
+          <h2 class="h2">ดีลนักศึกษา</h2>
+          <p class="sub">ส่วนลดที่ช่วยให้ได้ใช้ชีวิตกับเพื่อนโดยไม่เกินงบ</p>
+          <div class="chips" id="dealChips"></div>
+          <div id="dealList" style="display:flex;flex-direction:column;gap:12px"></div>
+        </section>
+
+        <!-- COMMUNITY -->
+        <section class="view" data-view="community" hidden>
+          <h2 class="h2">ชุมชนและที่ปรึกษา</h2>
+          <div class="card" style="background:var(--blue);border-color:transparent;display:flex;flex-direction:column;gap:10px">
+            <h3 class="sec">ท้าออมร่วมกัน 30 วัน</h3>
+            <div class="row"><span><b class="num" id="joined">24</b> คนเข้าร่วมแล้ว</span><span class="num">วันที่ 9 / 30</span></div>
+            <div class="bar dark-bar"><i style="width:30%"></i></div>
+            <button class="btn wide" id="joinBtn" aria-pressed="false">เข้าร่วมกับเพื่อน</button>
+          </div>
+          <div class="card" style="display:flex;flex-direction:column;gap:10px">
+            <h3 class="sec">ถามที่ปรึกษาการเงิน</h3>
+            <p class="sub">ถามเรื่องวางแผนเงิน ออม หรือหารายได้ ผู้เชี่ยวชาญตอบกลับในแอป</p>
+            <button class="btn ghost wide" id="openAsk">ตั้งคำถาม</button>
+          </div>
+          <h3 class="sec">เพื่อนแชร์วิธีออม</h3>
+          <div id="posts" style="display:flex;flex-direction:column;gap:12px"></div>
+        </section>
+      </div>
+
+      <nav class="tabs" id="tabs" aria-label="เมนูหลัก"></nav>
+
+      <div class="backdrop" id="addSheet" hidden>
+        <div class="sheet" role="dialog" aria-label="บันทึกรายจ่าย">
+          <div class="grab"></div>
+          <h2 class="h2" style="font-size:22px">บันทึกรายจ่าย</h2>
+          <div><label class="l" for="addAmt">จำนวนเงิน (บาท)</label><input class="field num" id="addAmt" type="number" inputmode="numeric" min="0" placeholder="เช่น 120"></div>
+          <div class="chips" id="catChips"></div>
+          <div class="status warn" id="addWarn" role="status" hidden><div><b>เกินงบวันนี้</b><span id="addWarnTxt"></span> <button class="chip" id="warnGo" style="margin-top:8px">ดูตัวช่วยก่อนจ่าย</button></div></div>
+          <div class="btns"><button class="btn ghost" data-close>ยกเลิก</button><button class="btn" id="saveAdd">บันทึก</button></div>
+        </div>
+      </div>
+
+      <div class="backdrop" id="askSheet" hidden>
+        <div class="sheet" role="dialog" aria-label="ตั้งคำถามถึงที่ปรึกษา">
+          <div class="grab"></div>
+          <h2 class="h2" style="font-size:22px">ตั้งคำถามถึงที่ปรึกษา</h2>
+          <div class="chips" id="topicChips"></div>
+          <div><label class="l" for="askTxt">คำถามของคุณ</label><textarea class="field" id="askTxt" rows="4" placeholder="เช่น เงินเหลือไม่ถึงสิ้นเดือนทุกเดือน ควรเริ่มจากตรงไหน"></textarea></div>
+          <div class="btns"><button class="btn ghost" data-close>ยกเลิก</button><button class="btn" id="sendAsk">ส่งคำถาม</button></div>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var baht=function(n){return '฿'+Math.round(n).toLocaleString('th-TH')};
+  var ICON={
+    home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
+    pause:'<circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>',
+    cap:'<path d="M2 9l10-5 10 5-10 5-10-5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>',
+    tag:'<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/>',
+    users:'<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.2a3.2 3.2 0 010 5.6M18 14.3c2 .8 3.5 2.8 3.5 5.7"/>'
+  };
+  var svg=function(k,s){return '<svg width="'+(s||24)+'" height="'+(s||24)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICON[k]+'</svg>'};
+  var VIEWS=[
+    {id:'home',name:'หน้าแรก',ic:'home',tap:'ดูเงินคงเหลือ ใช้ได้วันละเท่าไร บันทึกรายจ่าย ออมเข้าเป้าหมาย'},
+    {id:'prepay',name:'คิดก่อนจ่าย',ic:'pause',tap:'เลื่อนราคา ดูผลกระทบ เริ่มรอ 10 นาที หรือไปหาดีลที่ถูกกว่า'},
+    {id:'funds',name:'ทุนและงานเสริม',ic:'cap',tap:'สลับทุนกับงานพาร์ทไทม์ กดบันทึกรายการที่สนใจ'},
+    {id:'deals',name:'ดีลนักศึกษา',ic:'tag',tap:'กรองตามหมวด กดรับโค้ดและคัดลอก'},
+    {id:'community',name:'ชุมชน',ic:'users',tap:'เข้าร่วมท้าออม กดถูกใจโพสต์ ตั้งคำถามถึงที่ปรึกษา'}
+  ];
+  var S={budget:8000,bal:3420,days:12,goal:600,goalT:1500,
+    tx:[{n:'ข้าวกลางวัน',c:'อาหาร',a:60},{n:'ค่ารถไฟฟ้า',c:'เดินทาง',a:44},{n:'ถ่ายเอกสาร',c:'ของใช้',a:35}],
+    cat:'อาหาร',tab:'grant',deal:'ทั้งหมด',topic:'วางแผนเงิน'};
+  var GRANTS=[
+    {id:'g1',t:'ทุนช่วยเหลือค่าครองชีพ',o:'กองทุนนักศึกษา',v:'฿10,000 ต่อภาคเรียน',d:'ปิดรับ 15 พ.ย.',tag:'ขาดแคลนทุนทรัพย์'},
+    {id:'g2',t:'ทุนเรียนดีต่อเนื่อง',o:'คณะ',v:'฿15,000 ต่อปี',d:'ปิดรับ 30 พ.ย.',tag:'เกรด 3.00 ขึ้นไป'},
+    {id:'g3',t:'ทุนผู้ช่วยสอน',o:'ภาควิชา',v:'฿3,000 ต่อเดือน',d:'ปิดรับ 5 ธ.ค.',tag:'ปี 3 ขึ้นไป'}
+  ];
+  var JOBS=[
+    {id:'j1',t:'ผู้ช่วยงานวิจัย',o:'ห้องปฏิบัติการ',v:'฿120 ต่อชั่วโมง',d:'4 ชม. ต่อสัปดาห์',tag:'ในมหาวิทยาลัย'},
+    {id:'j2',t:'ติวเตอร์วิชาพื้นฐาน',o:'ศูนย์การเรียนรู้',v:'฿250 ต่อครั้ง',d:'เลือกเวลาเองได้',tag:'ปี 2 ขึ้นไป'},
+    {id:'j3',t:'ผู้ช่วยดูแลเพจกิจกรรม',o:'ชมรม',v:'฿2,000 ต่อเดือน',d:'ทำงานออนไลน์',tag:'ทำที่บ้านได้'}
+  ];
+  var saved={};
+  var DEALS=[
+    {id:'d1',c:'อาหาร',t:'ชุดอาหารกลางวันนักศึกษา',o:'ร้านพาร์ทเนอร์',off:'-20%',code:'LUNCH20'},
+    {id:'d2',c:'อาหาร',t:'เครื่องดื่ม ซื้อ 1 แถม 1',o:'ร้านพาร์ทเนอร์',off:'1 แถม 1',code:'BUY1GET1'},
+    {id:'d3',c:'กิจกรรม',t:'ตั๋วงานกิจกรรมมหาวิทยาลัย',o:'ชมรมนักศึกษา',off:'-฿50',code:'CAMPUS50'},
+    {id:'d4',c:'เดินทาง',t:'บัตรโดยสารรายสัปดาห์',o:'ขนส่งสาธารณะ',off:'-15%',code:'RIDE15'}
+  ];
+  var opened={};
+  var POSTS=[
+    {id:'p1',w:'นักศึกษาปี 2',x:'แยกเงินไว้สองกระปุก กระปุกแรกคือค่าอาหาร กระปุกที่สองห้ามแตะ ทำมา 3 เดือนแล้วมีเงินเก็บฉุกเฉิน',l:18},
+    {id:'p2',w:'นักศึกษาปี 4',x:'นัดเพื่อนกินข้าวที่บ้านผลัดกันทำ ลดค่ากินนอกบ้านได้เกือบครึ่ง ยังได้เจอกันเหมือนเดิม',l:31},
+    {id:'p3',w:'นักศึกษาปี 1',x:'ตั้งกฎรอ 10 นาทีก่อนกดซื้อของออนไลน์ เกินครึ่งหนึ่งลืมไปเลยว่าอยากได้',l:12}
+  ];
+  var liked={};
+
+  /* navigation */
+  function show(id){
+    $$('.view').forEach(function(v){v.hidden=v.dataset.view!==id});
+    $$('#tabs button').forEach(function(b){b.setAttribute('aria-current',b.dataset.v===id)});
+    $$('#guide button').forEach(function(b){b.setAttribute('aria-current',b.dataset.v===id)});
+    $('#screen').scrollTop=0;
+    try{history.replaceState(null,'','#'+id)}catch(e){}
+    if(id==='prepay')calcPrepay();
+  }
+  $('#tabs').innerHTML=VIEWS.map(function(v){return '<button data-v="'+v.id+'" aria-current="false">'+svg(v.ic,24)+'<span>'+v.name.replace('ทุนและงานเสริม','ทุน/งาน').replace('ดีลนักศึกษา','ดีล').replace('คิดก่อนจ่าย','ก่อนจ่าย')+'</span></button>'}).join('');
+  $('#guide').innerHTML=VIEWS.map(function(v){return '<li><button data-v="'+v.id+'" aria-current="false"><b>'+v.name+'</b><span>กดได้: '+v.tap+'</span></button></li>'}).join('');
+  $('#quick').innerHTML=VIEWS.slice(1).map(function(v){return '<button class="tile" data-v="'+v.id+'">'+svg(v.ic,26)+'<b>'+v.name+'</b></button>'}).join('');
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-v]');if(b){show(b.dataset.v)}});
+
+  var toastT;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('on')},2200)}
+  var daily=function(){return Math.max(0,Math.floor(S.bal/S.days))};
+
+  /* home */
+  function renderHome(){
+    $('#bal').textContent=baht(S.bal);
+    $('#balBar').style.width=Math.max(0,Math.min(100,S.bal/S.budget*100))+'%';
+    $('#daily').textContent=baht(daily());
+    $('#goalTxt').textContent=baht(S.goal)+' / '+baht(S.goalT);
+    $('#goalBar').style.width=Math.min(100,S.goal/S.goalT*100)+'%';
+    $('#txList').innerHTML=S.tx.slice(0,5).map(function(t){return '<li><div>'+t.n+'<small>'+t.c+'</small></div><b class="num">−'+baht(t.a)+'</b></li>'}).join('');
+  }
+  $('#addGoal').onclick=function(){
+    if(S.goal>=S.goalT){toast('ถึงเป้าหมายแล้ว');return}
+    if(S.bal<100){toast('เงินคงเหลือไม่พอ');return}
+    S.goal=Math.min(S.goalT,S.goal+100);S.bal-=100;renderHome();toast(S.goal>=S.goalT?'ครบเป้าหมายแล้ว ซื้อหูฟังได้':'ออมเข้าเป้าหมายแล้ว ฿100')
+  };
+
+  /* sheets */
+  function openSheet(id){var s=$(id);s.hidden=false;var f=$('input,textarea',s);if(f)setTimeout(function(){f.focus()},50)}
+  function closeSheets(){$$('.backdrop').forEach(function(s){s.hidden=true})}
+  $$('[data-close]').forEach(function(b){b.onclick=closeSheets});
+  $$('.backdrop').forEach(function(b){b.addEventListener('click',function(e){if(e.target===b)closeSheets()})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSheets()});
+
+  var CATS=['อาหาร','เดินทาง','กิจกรรม','ของใช้'];
+  function renderCats(){$('#catChips').innerHTML=CATS.map(function(c){return '<button class="chip" aria-pressed="'+(c===S.cat)+'" data-cat="'+c+'">'+c+'</button>'}).join('')}
+  $('#catChips').onclick=function(e){var b=e.target.closest('[data-cat]');if(b){S.cat=b.dataset.cat;renderCats()}};
+  $('#openAdd').onclick=function(){$('#addAmt').value='';$('#addWarn').hidden=true;renderCats();openSheet('#addSheet')};
+  $('#addAmt').oninput=function(){
+    var a=+this.value||0,d=daily();
+    if(a>d){$('#addWarn').hidden=false;$('#addWarnTxt').textContent=' รายจ่ายนี้สูงกว่าที่ใช้ได้ต่อวัน ('+baht(d)+') อยู่ '+baht(a-d)}
+    else $('#addWarn').hidden=true;
+  };
+  $('#warnGo').onclick=function(){var a=+$('#addAmt').value||0;$('#amt').value=Math.min(2000,Math.max(0,Math.round(a/10)*10));closeSheets();show('prepay')};
+  $('#saveAdd').onclick=function(){
+    var a=+$('#addAmt').value;
+    if(!(a>0)){toast('ใส่จำนวนเงินก่อน');return}
+    S.bal-=a;S.tx.unshift({n:'รายจ่ายใหม่',c:S.cat,a:a});renderHome();closeSheets();toast('บันทึก '+baht(a)+' แล้ว')
+  };
+
+  /* prepay */
+  var clockT=null,secs=600;
+  function fmt(s){var m=Math.floor(s/60),r=s%60;return (m<10?'0':'')+m+':'+(r<10?'0':'')+r}
+  function calcPrepay(){
+    var a=+$('#amt').value,after=S.bal-a,d=daily(),dA=Math.max(0,Math.floor(after/S.days));
+    $('#amtTxt').textContent=baht(a);$('#after').textContent=baht(after);$('#dAfter').textContent=baht(dA);
+    var k,h,m;
+    if(after<0){k='bad';h='เกินเงินคงเหลือ';m='ถ้าจ่ายจะขาดอยู่ '+baht(-after)+' เลื่อนไว้ก่อนดีกว่า'}
+    else if(a<=d){k='ok';h='อยู่ในงบวันนี้';m='จ่ายได้ ยังเหลือ '+baht(d-a)+' ของงบวันนี้'}
+    else if(a<=S.bal*0.25){k='warn';h='เกินงบวันนี้ '+baht(a-d);m='ต้องประหยัดวันอื่นเพิ่ม ลองรอสักครู่ก่อน'}
+    else{k='bad';h='กินเงินเกือบ '+Math.round(a/S.bal*100)+'% ของที่เหลือ';m='ลองรอ หรือหาตัวเลือกที่ถูกกว่า'}
+    var st=$('#pstat');st.className='status '+k;st.innerHTML='<div><b>'+h+'</b><span>'+m+'</span></div>';
+    var pct=Math.round(a/S.goalT*100);
+    $('#goalCmp').innerHTML='<small class="sub">เทียบกับเป้าหมายหูฟัง</small><div style="font-size:16px">เท่ากับ <b>'+pct+'%</b> ของราคาหูฟัง ถ้าออมแทน จะเหลืออีก '+baht(Math.max(0,S.goalT-S.goal-a))+' ถึงเป้า</div>';
+  }
+  $('#amt').oninput=calcPrepay;
+  $('#waitBtn').onclick=function(){
+    if(clockT){clearInterval(clockT);clockT=null;secs=600;$('#clock').textContent='10:00';this.textContent='เริ่มรอ 10 นาที';return}
+    this.textContent='ยกเลิกการรอ';toast('เริ่มนับถอยหลังแล้ว');
+    clockT=setInterval(function(){secs--;$('#clock').textContent=fmt(secs);if(secs<=0){clearInterval(clockT);clockT=null;secs=600;$('#waitBtn').textContent='เริ่มรอ 10 นาที';toast('ครบเวลาแล้ว ยังอยากได้อยู่ไหม')}},1000);
+  };
+  $('#toDeals').onclick=function(){show('deals')};
+  $('#payNow').onclick=function(){
+    var a=+$('#amt').value;if(!(a>0)){toast('เลื่อนราคาก่อน');return}
+    if(a>S.bal){toast('เงินคงเหลือไม่พอ');return}
+    S.bal-=a;S.tx.unshift({n:'จ่ายหลังคิดแล้ว',c:'อื่นๆ',a:a});renderHome();show('home');toast('บันทึก '+baht(a)+' แล้ว')
+  };
+
+  /* funds */
+  function renderFunds(){
+    var arr=S.tab==='grant'?GRANTS:JOBS;
+    $$('#fundSeg button').forEach(function(b){b.setAttribute('aria-selected',b.dataset.k===S.tab)});
+    var n=Object.keys(saved).filter(function(k){return saved[k]}).length;
+    $('#savedLine').textContent=n?('บันทึกไว้แล้ว '+n+' รายการ'):'ยังไม่ได้บันทึกรายการใด';
+    $('#fundList').innerHTML=arr.map(function(g){
+      return '<article class="card item"><div class="top2"><div><span class="badge">'+g.tag+'</span><h3 style="margin-top:8px">'+g.t+'</h3></div>'+
+      '<button class="save" data-save="'+g.id+'" aria-pressed="'+!!saved[g.id]+'" aria-label="บันทึก '+g.t+'">'+svg('tag',20)+'</button></div>'+
+      '<p>'+g.o+' · ตรวจแหล่งที่มาแล้ว</p><div class="row"><b>'+g.v+'</b><span class="sub">'+g.d+'</span></div></article>'}).join('');
+  }
+  $('#fundSeg').onclick=function(e){var b=e.target.closest('[data-k]');if(b){S.tab=b.dataset.k;renderFunds()}};
+  $('#fundList').onclick=function(e){var b=e.target.closest('[data-save]');if(b){var k=b.dataset.save;saved[k]=!saved[k];renderFunds();toast(saved[k]?'บันทึกไว้แล้ว':'เอาออกจากรายการที่บันทึก')}};
+
+  /* deals */
+  function renderDeals(){
+    var cs=['ทั้งหมด','อาหาร','กิจกรรม','เดินทาง'];
+    $('#dealChips').innerHTML=cs.map(function(c){return '<button class="chip" data-dc="'+c+'" aria-pressed="'+(c===S.deal)+'">'+c+'</button>'}).join('');
+    $('#dealList').innerHTML=DEALS.filter(function(d){return S.deal==='ทั้งหมด'||d.c===S.deal}).map(function(d){
+      return '<article class="card item"><div class="top2"><div><span class="badge hot">'+d.c+'</span><h3 style="margin-top:8px">'+d.t+'</h3><p>'+d.o+'</p></div><div class="off">'+d.off+'</div></div>'+
+      (opened[d.id]?'<div class="code"><span>'+d.code+'</span><button data-copy="'+d.code+'">คัดลอก</button></div>':'<button class="btn soft wide" data-open="'+d.id+'">รับโค้ด</button>')+'</article>'}).join('');
+  }
+  $('#dealChips').onclick=function(e){var b=e.target.closest('[data-dc]');if(b){S.deal=b.dataset.dc;renderDeals()}};
+  $('#dealList').onclick=function(e){
+    var o=e.target.closest('[data-open]');if(o){opened[o.dataset.open]=true;renderDeals();return}
+    var c=e.target.closest('[data-copy]');if(c){var v=c.dataset.copy;
+      try{navigator.clipboard.writeText(v).then(function(){toast('คัดลอก '+v+' แล้ว')},function(){toast('แตะที่โค้ด '+v+' แล้วคัดลอกเอง')})}catch(x){toast('แตะที่โค้ด '+v+' แล้วคัดลอกเอง')}}
+  };
+
+  /* community */
+  var joined=false,jn=24;
+  $('#joinBtn').onclick=function(){joined=!joined;jn+=joined?1:-1;$('#joined').textContent=jn;this.setAttribute('aria-pressed',joined);this.textContent=joined?'เข้าร่วมแล้ว (กดเพื่อออก)':'เข้าร่วมกับเพื่อน';toast(joined?'เข้าร่วมท้าออมแล้ว':'ออกจากกลุ่มท้าออมแล้ว')};
+  function renderPosts(){
+    $('#posts').innerHTML=POSTS.map(function(p){var n=p.l+(liked[p.id]?1:0);
+      return '<article class="card post"><b>'+p.w+'</b><p style="margin:6px 0 4px">'+p.x+'</p><button class="like" data-like="'+p.id+'" aria-pressed="'+!!liked[p.id]+'">ถูกใจ <span class="num">'+n+'</span></button></article>'}).join('');
+  }
+  $('#posts').onclick=function(e){var b=e.target.closest('[data-like]');if(b){liked[b.dataset.like]=!liked[b.dataset.like];renderPosts()}};
+  var TOP=['วางแผนเงิน','ออมเงิน','หารายได้เสริม','ทุนการศึกษา'];
+  function renderTopics(){$('#topicChips').innerHTML=TOP.map(function(t){return '<button class="chip" data-tp="'+t+'" aria-pressed="'+(t===S.topic)+'">'+t+'</button>'}).join('')}
+  $('#topicChips').onclick=function(e){var b=e.target.closest('[data-tp]');if(b){S.topic=b.dataset.tp;renderTopics()}};
+  $('#openAsk').onclick=function(){renderTopics();openSheet('#askSheet')};
+  $('#sendAsk').onclick=function(){
+    if(!$('#askTxt').value.trim()){toast('พิมพ์คำถามก่อนส่ง');return}
+    $('#askTxt').value='';closeSheets();toast('ส่งคำถามเรื่อง'+S.topic+'แล้ว (ตัวอย่าง ยังไม่มีผู้ตอบจริง)')
+  };
+
+  renderHome();renderFunds();renderDeals();renderPosts();
+  var h=(location.hash||'').slice(1);show(VIEWS.some(function(v){return v.id===h})?h:'home');
+  window.addEventListener('hashchange',function(){var x=location.hash.slice(1);if(VIEWS.some(function(v){return v.id===x}))show(x)});
+})();
+</script>
+
+</body></html>
